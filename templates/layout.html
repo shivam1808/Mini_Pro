@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Flask app</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.5.1/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.5.1/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://rawcdn.githack.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css"/>
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+            <style>
+                #map_1a613eb502ca4f7ea6b921d6e393a6b9 {
+                    position: relative;
+                    width: 97.0%;
+                    height: 90.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                    margin: auto;
+                }
+            </style>
+
+    <script type="text/javascript">
+      $(function() {
+          $("td[colspan=3]").find("p").hide();
+          $("table").click(function(event) {
+              event.stopPropagation();
+              var $target = $(event.target);
+              if ( $target.closest("td").attr("colspan") > 1 ) {
+                  $target.slideUp();
+              } else {
+                  $target.closest("tr").next().find("p").slideToggle();
+              }                    
+          });
+      });
+    </script>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1 class="logo">Covid-19 Active Test Lab In India</h1>
+        <strong><nav>
+          <ul class="menu">
+            <li><a href="{{ url_for('index') }}">Map</a></li>
+            <li><a href="{{ url_for('nearMe') }}">Near Me</a></li>
+            <li><a href="{{ url_for('detail') }}">Detail</a></li>
+          </ul>
+        </nav></strong>
+      </div>
+    </header>
+      {% block content %}
+      {% endblock %}
+  </body>
+</html>

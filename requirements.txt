@@ -1,0 +1,8 @@
+flask
+pandas
+folium
+geocoder
+geopy
+python-google-places
+requests
+json
